@@ -1,5 +1,3 @@
-"""Method 2: item-item collaborative filtering with cosine similarity."""
-
 from __future__ import annotations
 
 import argparse
@@ -12,7 +10,7 @@ from data_pipeline import load_movielens, run_method_over_sparsity
 
 
 class ItemItemCF:
-    """Item-item CF using cosine similarity between item rating vectors."""
+    # Item-item CF using cosine similarity between item rating vectors
 
     def __init__(self, k: int = 20):
         self.k = k

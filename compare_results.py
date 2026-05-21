@@ -1,5 +1,3 @@
-"""Combine method result CSVs and plot RMSE/runtime curves."""
-
 from __future__ import annotations
 
 import argparse
@@ -10,7 +8,7 @@ import pandas as pd
 
 
 def build_breakdown_summary(results: pd.DataFrame) -> pd.DataFrame:
-    """Return the first sparsity level where each method stops beating baseline."""
+    # Return the first sparsity level where each method stops beating baseline
     rows = []
     for method, group in results.groupby("method"):
         group = group.sort_values("observed_ratings_removed")

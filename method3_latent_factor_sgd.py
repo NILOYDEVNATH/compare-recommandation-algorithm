@@ -1,5 +1,3 @@
-"""Method 3: latent factor model with user/item biases trained by SGD."""
-
 from __future__ import annotations
 
 import argparse
@@ -12,7 +10,7 @@ from data_pipeline import load_movielens, run_method_over_sparsity
 
 
 class LatentFactorSGD:
-    """Biased matrix factorization: r_ui ~= mu + b_u + b_i + p_u dot q_i."""
+    # Biased matrix factorization: r_ui ~= mu + b_u + b_i + p_u dot q_i
 
     def __init__(
         self,

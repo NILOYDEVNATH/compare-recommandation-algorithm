@@ -1,5 +1,3 @@
-"""Shared data preparation and evaluation helpers for MovieLens experiments."""
-
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -34,7 +32,7 @@ class EvaluationResult:
 
 
 class GlobalMeanBaseline:
-    """Predict every known test pair with the training-set global mean."""
+    # Predict every known test pair with the training-set global mean
 
     def fit(self, matrix: csr_matrix) -> "GlobalMeanBaseline":
         self.global_mean = float(matrix.data.mean())
@@ -45,7 +43,7 @@ class GlobalMeanBaseline:
 
 
 def load_movielens(path: str | Path) -> pd.DataFrame:
-    """Load MovieLens 100K, 1M, or similarly formatted ratings files."""
+    # Load MovieLens 100K, 1M, or similarly formatted ratings files
     path = Path(path)
     if not path.exists():
         raise FileNotFoundError(
@@ -81,12 +79,11 @@ def simulate_observed_rating_mask(
     missing_fraction: float,
     seed: int = 42,
 ) -> pd.DataFrame:
-    """
-    Remove a fraction of observed ratings.
-
-    This controls sparsity relative to the available MovieLens ratings, not the
-    full user x item grid, which is already naturally sparse.
-    """
+   
+    # Remove a fraction of observed ratings.
+    # This controls sparsity relative to the available MovieLens ratings, not the
+    # full user x item grid, which is already naturally sparse.
+    
     rng = np.random.default_rng(seed)
     keep_count = int(len(ratings) * (1.0 - missing_fraction))
     kept_positions = rng.choice(len(ratings), size=keep_count, replace=False)

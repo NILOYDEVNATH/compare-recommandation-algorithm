@@ -1,5 +1,3 @@
-"""Method 1: user-user collaborative filtering with Pearson similarity."""
-
 from __future__ import annotations
 
 import argparse
@@ -12,7 +10,7 @@ from data_pipeline import load_movielens, run_method_over_sparsity
 
 
 class UserUserCF:
-    """User-user CF using Pearson similarity and bias-corrected neighbours."""
+    # User-user CF using Pearson similarity and bias-corrected neighbours
 
     def __init__(self, k: int = 20):
         self.k = k
